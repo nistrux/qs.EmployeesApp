@@ -31,23 +31,23 @@ This project is a test task application demonstrating a full-stack application b
 
 * PostgreSQL 17
 
-## Prerequisites
+## ✅ Prerequisites
 
 To build and run this project using Podman Compose, you need the following installed:
 
 * Git
-* Podman or Docker
+* [Podman](https://podman.io/get-started) or [Docker](https://www.docker.com/)
 * [.NET SDK 8.0](https://dotnet.microsoft.com/download/dotnet/8.0) (Needed for building the .NET app in Docker, and for running `dotnet ef` if you run backend manually or generate migrations).
 * [Node.js and npm](https://nodejs.org/) (Needed for building the frontend in Docker, and for running frontend manually).
 
-## Running with Podman Compose (Recommended)
+## 🚀 Running with Podman Compose (Recommended)
 
 This is the easiest way to get the entire application stack (Backend + Frontend + Database) up and running with a single command.
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository_url>
-    cd <cloned_folder_name> # e.g., cd qs.EmployeesApp
+    git clone https://github.com/nistrux/qs.EmployeesApp.git
+    cd qs.EmployeesApp
     ```
     *(Make sure your `docker-compose.yml` and the `backend` and `frontend` folders are in the root of the cloned directory)*
 
@@ -81,7 +81,7 @@ This is the easiest way to get the entire application stack (Backend + Frontend 
     ```bash
     podman-compose up -d --build
     # Or if you use Docker Compose:
-    # docker-compose up --build
+    # docker-compose up -d --build
     ```
     This command will:
     * Build the frontend application within a temporary Node.js Docker stage.
@@ -91,7 +91,7 @@ This is the easiest way to get the entire application stack (Backend + Frontend 
     * Create and start the backend application container.
     * Upon backend startup, automatically apply any pending Entity Framework Core migrations to the database.
     * Map the backend's exposed port (default 8888 internally) to port 8888 on your host machine.
-    * Map the database's internal port 5432 to port 5433 on your host machine (allowing external DB clients like pgAdmin to connect via `localhost:5433`).
+    * Map the database's internal port 5432 to port 5433 on your host machine (allowing external DB clients like [pgAdmin](https://www.pgadmin.org/) or [DBeaver](https://dbeaver.io/) to connect via `localhost:5433`).
 
 4.  **Access the Application:**
     Once the containers are running, the application should be available in your web browser at:
@@ -112,7 +112,7 @@ This is the easiest way to get the entire application stack (Backend + Frontend 
     ```
     This will stop and remove the containers, but the `emp_db_data` volume (containing your database data) will be preserved. To remove the volume as well (for a clean start), use `podman-compose down --volumes --remove-orphans`.
 
-## Running the Backend Only (Manual/Development)
+## 🖥️ Running the Backend Only (Manual/Development)
 
 This is useful if you want to run the backend application directly on your host machine for debugging or development purposes, connecting to a locally running PostgreSQL server or another accessible DB instance.
 
@@ -138,7 +138,7 @@ This is useful if you want to run the backend application directly on your host 
     ```
     The application will start and listen on the ports configured in its `Properties/launchSettings.json` or `appsettings.json`.
 
-## Running the Frontend Only (Manual/Development)
+## 🌐 Running the Frontend Only (Manual/Development)
 
 This is useful for frontend development with hot-reloading, connecting to a separately running backend API.
 
@@ -157,10 +157,10 @@ This is useful for frontend development with hot-reloading, connecting to a sepa
     ```
     The Vite development server will start, typically at `http://localhost:5173/` (check the console output). It is configured with a proxy (`/api`) in `vite.config.ts` to forward API calls to the backend address specified there (`http://localhost:5194` in your original config). Ensure this proxy URL matches where your backend is running.
 
-## SQL Queries for Test Task
+## 📊 SQL Queries for Test Task
 
 This project includes a collection of example SQL queries relevant to the test task requirements or demonstrating database interactions with the PostgreSQL database used by the application.
 
 You can find these queries in the file located at:
 
-`/sql_scripts/queries.sql`
+[sql_scripts/queries.sql](https://github.com/nistrux/qs.EmployeesApp/blob/main/sql_scripts/queries.sql) (direct link)
