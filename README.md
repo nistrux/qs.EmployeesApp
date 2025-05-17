@@ -2,7 +2,7 @@
 
 This project is a test task application demonstrating a full-stack application built with ASP.NET Core (.NET 8) for the backend and Svelte with Vite for the frontend, orchestrated using Podman Compose (or Docker Compose).
 
-## Technology Stack
+## 🧰 Technology Stack
 
 **Backend:**
 
